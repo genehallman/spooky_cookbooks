@@ -2,6 +2,7 @@
 
 include_recipe "ruby-ng"
 include_recipe "nodejs"
-# include_recipe "postgres"
-# include_recipe "nginx"
-# include_recipe "unicorn"
+include_recipe "nodejs::npm"
+include_recipe "postgres"
+include_recipe "nginx"
+include_recipe "unicorn"

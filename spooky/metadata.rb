@@ -6,6 +6,6 @@ version     "1.0.0"
 
 depends 'ruby-ng'
 depends 'nodejs'
-# depends 'postgres'
-# depends 'nginx'
-# depends 'unicorn'
+depends 'postgres'
+depends 'nginx'
+depends 'unicorn'
