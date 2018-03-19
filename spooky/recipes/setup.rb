@@ -8,3 +8,4 @@ include_recipe "nginx"
 include_recipe "unicorn"
 
 apt_package 'zlib1g-dev'
+apt_package 'libpq-dev'
