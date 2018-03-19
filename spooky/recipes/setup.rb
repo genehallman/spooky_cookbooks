@@ -1,6 +1,6 @@
 # setup script here
 
-include_recipe "ruby"
+include_recipe "ruby-ng"
 # include_recipe "nodejs"
 # include_recipe "postgres"
 # include_recipe "nginx"
