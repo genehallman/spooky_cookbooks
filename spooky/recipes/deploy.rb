@@ -39,16 +39,16 @@ execute "Compile Rails Assets" do
   environment {"RAILS_ENV": "production"}
 end
 
-execute "Start server" do
-  cwd node[:spooky][:path]
-  command "rails server"
-  environment {
-    "RAILS_SERVE_STATIC_FILES": "true",
-    "SECRET_KEY_BASE": "3bcaa9e533f76d24e9f9eb8d4c267da75cad1c70950d329698e5f387d8a4c0f2cb323ddecfb2b586232bb707e32a9c9ccfa61b7528d1ff0644f47651e98b0974",
-    "DATABASE_URL": "postgres://spooky:superspooky@spooky-restore.czw89thqzdvd.us-west-2.rds.amazonaws.com:5432/spooky_production",
-    "RAILS_ENV": "production"
-  }
-end
+# execute "Start server" do
+#   cwd node[:spooky][:path]
+#   command "rails server"
+#   environment {
+#     "RAILS_SERVE_STATIC_FILES": "true",
+#     "SECRET_KEY_BASE": "3bcaa9e533f76d24e9f9eb8d4c267da75cad1c70950d329698e5f387d8a4c0f2cb323ddecfb2b586232bb707e32a9c9ccfa61b7528d1ff0644f47651e98b0974",
+#     "DATABASE_URL": "postgres://spooky:superspooky@spooky-restore.czw89thqzdvd.us-west-2.rds.amazonaws.com:5432/spooky_production",
+#     "RAILS_ENV": "production"
+#   }
+# end
 
 service "spooky" do
   action [ :enable, :start ]
