@@ -6,3 +6,5 @@ include_recipe "nodejs::npm"
 include_recipe "postgres"
 include_recipe "nginx"
 include_recipe "unicorn"
+
+apt_package 'zlib-dev'
