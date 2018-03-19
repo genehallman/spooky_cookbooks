@@ -1,0 +1,9 @@
+DEPENDENCIES
+  spooky
+    path: .
+    metadata: true
+
+GRAPH
+  ruby (1.0.0)
+  spooky (1.0.0)
+    ruby (>= 0.0.0)
