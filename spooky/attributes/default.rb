@@ -1,2 +1,2 @@
-node[:app_name][:git_repository] = "https://github.com/chungkikelly/spooky/"
-node[:app_name][:git_revision] = "master"
+node[:spooky][:git_repository] = "https://github.com/chungkikelly/spooky/"
+node[:spooky][:git_revision] = "master"
