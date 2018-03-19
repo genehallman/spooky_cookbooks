@@ -30,13 +30,13 @@ end
 execute "Compile Webpack Assets" do
   cwd node[:spooky][:path]
   command "./node_modules/.bin/webpack"
-  environment {"NODE_ENV": "production"}
+  environment ({"NODE_ENV": "production"})
 end
 
 execute "Compile Rails Assets" do
   cwd node[:spooky][:path]
   command "rake assets:precompile"
-  environment {"RAILS_ENV": "production"}
+  environment ({"RAILS_ENV": "production"})
 end
 
 # execute "Start server" do
