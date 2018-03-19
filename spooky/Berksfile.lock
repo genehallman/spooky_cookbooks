@@ -4,6 +4,17 @@ DEPENDENCIES
     metadata: true
 
 GRAPH
-  ruby (1.0.0)
+  apt (6.1.4)
+  build-essential (8.1.1)
+    mingw (>= 1.1)
+    seven_zip (>= 0.0.0)
+  mingw (2.0.2)
+    seven_zip (>= 0.0.0)
+  ruby-ng (0.3.0)
+    apt (>= 0.0.0)
+    build-essential (>= 0.0.0)
+  seven_zip (2.0.2)
+    windows (>= 1.2.2)
   spooky (1.0.0)
-    ruby (>= 0.0.0)
+    ruby-ng (>= 0.0.0)
+  windows (4.0.1)
