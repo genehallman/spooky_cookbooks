@@ -7,4 +7,4 @@ include_recipe "postgres"
 include_recipe "nginx"
 include_recipe "unicorn"
 
-apt_package 'zlib-dev'
+apt_package 'zlib1g-dev'
