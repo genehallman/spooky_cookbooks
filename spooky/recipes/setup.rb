@@ -24,7 +24,7 @@ service "spooky" do
 end 
 
 template "#{node['nginx']['dir']}/sites-available/spooky" do
-  source 'spooky-site.erb'
+  source 'spooky_site.erb'
   notifies :reload, 'service[nginx]', :delayed
 end
 
