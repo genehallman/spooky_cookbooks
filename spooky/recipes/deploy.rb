@@ -2,19 +2,21 @@ service "spooky" do
   action [:stop]
 end 
 
-# deploy script here
-git "#{node[:spooky][:path]}" do
-  repository node[:spooky][:git_repository]
-  revision node[:spooky][:git_revision]
-  action :sync
-end
-
 directory "#{node[:spooky][:path]}" do
   owner 'ubuntu'
   group 'ubuntu'
   mode '0755'
   recursive true
   action :create
+end
+
+# deploy script here
+git "#{node[:spooky][:path]}" do
+  repository node[:spooky][:git_repository]
+  revision node[:spooky][:git_revision]
+  environment ({"HOME"=>"/home/ubuntu"})
+  action :sync
+  user "ubuntu"
 end
 
 execute "Install Gems" do
