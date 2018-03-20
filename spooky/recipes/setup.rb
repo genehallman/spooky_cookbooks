@@ -32,7 +32,14 @@ nginx_site 'spooky' do
   action :enable
 end
 
-unicorn_config "spooky" do
+directory '/tmp/sockets/' do
+  owner 'root'
+  group 'root'
+  mode '0777'
+  action :create
+end
+
+unicorn_config "#{node[:spooky][:path]}/config/unicorn.rb" do
   listen ({"unix:/tmp/sockets/unicorn.sock": nil})
   working_directory node[:spooky][:path]
   # /config/unicorn.rb
