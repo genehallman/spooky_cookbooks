@@ -13,6 +13,7 @@ directory "#{node[:spooky][:path]}" do
   owner 'ubuntu'
   group 'ubuntu'
   mode '0755'
+  recursive True
   action :create
 end
 
