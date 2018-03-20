@@ -22,7 +22,7 @@ execute "Install Gems" do
   command "bundle install"
   user "ubuntu"
   # group new_resource.group
-  # environment npm_env_vars
+  environment ({"HOME"=>"/home/ubuntu"})
   # not_if { package_installed? }
 end
 
@@ -31,21 +31,21 @@ execute "Install NPM packages" do
   command "npm install"
   user "ubuntu"
   # group new_resource.group
-  # environment npm_env_vars
+  environment ({"HOME"=>"/home/ubuntu"})
   # not_if { package_installed? }
 end
 
 execute "Compile Webpack Assets" do
   cwd node[:spooky][:path]
   command "./node_modules/.bin/webpack"
-  environment ({"NODE_ENV": "production"})
+  environment ({"NODE_ENV": "production", "HOME": "/home/ubuntu"})
   user "ubuntu"
 end
 
 execute "Compile Rails Assets" do
   cwd node[:spooky][:path]
   command "rake assets:precompile"
-  environment ({"RAILS_ENV": "production"})
+  environment ({"RAILS_ENV": "production", "HOME": "/home/ubuntu"})
   user "ubuntu"
 end
 
