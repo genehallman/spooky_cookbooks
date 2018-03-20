@@ -21,4 +21,4 @@ environment = {
 
 env_str = environment.map {|k,v| "#{k}=#{v}"}.join(' ')
 
-default[:spooky][:start_cmd] = "#{env_str} unicorn -E production -c #{node[:spooky][:path]}/config/unicorn.rb"
+default[:spooky][:start_cmd] = "#{env_str} unicorn -E production -c /opt/unicorn.rb"

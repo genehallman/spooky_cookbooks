@@ -39,7 +39,7 @@ directory '/tmp/sockets/' do
   action :create
 end
 
-unicorn_config "#{node[:spooky][:path]}/config/unicorn.rb" do
+unicorn_config "/opt/unicorn.rb" do
   listen ({"unix:/tmp/sockets/unicorn.sock": nil})
   working_directory node[:spooky][:path]
   # /config/unicorn.rb
