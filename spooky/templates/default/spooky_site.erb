@@ -4,7 +4,7 @@ upstream spooky_unicorn {
 }
 
 server {
-  listen   <%= node['nginx']['port'] -%>;
+  listen   80;
   client_max_body_size 4G;
   # server_name  *;
   
