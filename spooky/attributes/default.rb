@@ -8,15 +8,14 @@ default[:spooky][:git_revision] = "master"
 default[:spooky][:path] = "/opt/spooky"
 
 default[:spooky][:rails_serve_static_files] = "true"
-default[:spooky][:secret_key_base] = "3bcaa9e533f76d24e9f9eb8d4c267da75cad1c70950d329698e5f387d8a4c0f2cb323ddecfb2b586232bb707e32a9c9ccfa61b7528d1ff0644f47651e98b0974"
-default[:spooky][:database_url] = "postgres://spooky:superspooky@spooky-restore.czw89thqzdvd.us-west-2.rds.amazonaws.com:5432/spooky_production"
 default[:spooky][:rails_env] = "production"
 
 environment = {
-  "RAILS_SERVE_STATIC_FILES": "true",
-  "SECRET_KEY_BASE": "3bcaa9e533f76d24e9f9eb8d4c267da75cad1c70950d329698e5f387d8a4c0f2cb323ddecfb2b586232bb707e32a9c9ccfa61b7528d1ff0644f47651e98b0974",
-  "DATABASE_URL": "postgres://spooky:superspooky@spooky-restore.czw89thqzdvd.us-west-2.rds.amazonaws.com:5432/spooky_production",
-  "RAILS_ENV": "production"
+  "RAILS_SERVE_STATIC_FILES": default[:spooky][:rails_serve_static_files],
+  "SECRET_KEY_BASE": default[:spooky][:secret_key_base],
+  "DATABASE_URL": default[:spooky][:database_url],
+  "RAILS_ENV": default[:spooky][:rails_env],
+  "CDN_HOST": default[:spooky][:cdn_host]
 }
 
 env_str = environment.map {|k,v| "#{k}=#{v}"}.join(' ')
