@@ -33,7 +33,7 @@ nginx_site 'spooky' do
 end
 
 unicorn_config "spooky" do
-  listen "unix:/tmp/sockets/unicorn.sock"
+  listen ({"unix:/tmp/sockets/unicorn.sock": nil})
   working_directory node[:spooky][:path]
   # /config/unicorn.rb
 end
