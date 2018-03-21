@@ -33,10 +33,21 @@ case "$1" in
     else
         echo "Starting $name"
         cd "$dir"
+        
+        <% if node[:spooky].attribute?('cdn_host') %>
+        git_commit=`cd ${dir}; git rev-parse HEAD`
+        export CDN_HOST="${CDN_HOST}/${git_commit}/"
+        <% else %>
+        export RAILS_SERVE_STATIC_FILES="true"
+        <% end %>
+        <% node[:spooky][:environment].each do |k, v| %>
+        export <%= k%>="<%= v%>"
+        <% end %>
+        
         if [ -z "$user" ]; then
-            sudo $cmd >> "$stdout_log" 2>> "$stderr_log" &
+            sudo -E $cmd >> "$stdout_log" 2>> "$stderr_log" &
         else
-            sudo -u "$user" $cmd >> "$stdout_log" 2>> "$stderr_log" &
+            sudo -E -H -u "$user" $cmd >> "$stdout_log" 2>> "$stderr_log" &
         fi
         echo $! > "$pid_file"
         if ! is_running; then
