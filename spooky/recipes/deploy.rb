@@ -44,9 +44,16 @@ execute "Compile Webpack Assets" do
   user "ubuntu"
 end
 
+execute "Clobber Rails Assets" do
+  cwd node[:spooky][:path]
+  command "bundle exec rake assets:clobber"
+  environment ({"RAILS_ENV": "production", "HOME": "/home/ubuntu"})
+  user "ubuntu"
+end
+
 execute "Compile Rails Assets" do
   cwd node[:spooky][:path]
-  command "rake assets:precompile"
+  command "bundle exec rake assets:precompile"
   environment ({"RAILS_ENV": "production", "HOME": "/home/ubuntu"})
   user "ubuntu"
 end
