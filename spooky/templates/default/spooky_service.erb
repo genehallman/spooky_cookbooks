@@ -36,14 +36,14 @@ case "$1" in
         
         <% if node[:spooky].attribute?('cdn_host') %>
         git_commit=`cd ${dir}; git rev-parse HEAD`
-        export CDN_HOST="${CDN_HOST}/${git_commit}/"
+        export CDN_HOST="<%= node[:spooky][:cdn_host] %>/${git_commit}/"
         <% else %>
         export RAILS_SERVE_STATIC_FILES="true"
         <% end %>
         <% node[:spooky][:environment].each do |k, v| %>
         export <%= k%>="<%= v%>"
         <% end %>
-        
+
         if [ -z "$user" ]; then
             sudo -E $cmd >> "$stdout_log" 2>> "$stderr_log" &
         else
