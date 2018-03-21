@@ -15,6 +15,6 @@ default[:spooky][:environment] = {
   "RAILS_ENV": default[:spooky][:rails_env]
 }
 
-env_str = environment.map {|k,v| "#{k}=#{v}"}.join(' ')
+# env_str = environment.map {|k,v| "#{k}=#{v}"}.join(' ')
 
 default[:spooky][:start_cmd] = "unicorn -E production -c /opt/unicorn.rb"
